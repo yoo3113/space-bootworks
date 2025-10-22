@@ -1,0 +1,27 @@
+package com.springboot.controller.param;
+
+import com.springboot.controller.HomeController;
+import com.springboot.dto.User;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class Ex03Controller {
+
+	//로그인 페이지 요청
+	@GetMapping("/userForm")
+	public String formPage() {
+		return "pages/userForm";
+	}
+	
+	@PostMapping("/login")
+	public String resultPage(@ModelAttribute User user) {
+		System.out.println("user:" + user);
+		return "redirect:/";
+	}
+}

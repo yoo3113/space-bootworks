@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<script th:src="@{/js/time.js}"></script>
+</head>
+<body>
+	<div id="content">
+		<h2>시간</h2>
+		<h3>나는 내일 어제의 너와 만난다.</h3>
+		<img alt="내일" src="/images/im.jpg">
+		<p id="display">
+	</div>
+</body>
+</html>

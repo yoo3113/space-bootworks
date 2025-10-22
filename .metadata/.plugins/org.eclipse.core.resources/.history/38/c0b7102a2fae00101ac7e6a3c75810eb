@@ -1,0 +1,14 @@
+package com.springboot.controller.exam;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RequestMapping("/exam02")
+@RestController	//문자열를 화면에 보내준다.
+public class Exam02Controller {
+	
+	public String requestMethod() {
+		return "@restController 예제입니다.";
+	}
+}

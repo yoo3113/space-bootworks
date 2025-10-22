@@ -1,0 +1,18 @@
+package com.springboot.controller.exam;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class Exam01Controller {
+	
+	/*http://localhost:8080/exam01*/
+	// method=RequestMethod.GET -> GetMapping
+	// method=RequestMethod.POST -> PostMapping
+	//@RequestMapping(value="/exam01", method=RequestMethod.GET)
+	@RequestMapping(value="/exam01")
+	public String requestMethod() {
+		return "pages/view01"; //pages/view01.html
+	}
+}

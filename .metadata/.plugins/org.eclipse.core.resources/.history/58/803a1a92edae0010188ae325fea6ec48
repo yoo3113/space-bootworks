@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Model 예제</title>
+</head>
+<body>
+	<h2>로그인</h2>
+	<form th:action="@{/login}" method="post"></form>
+</body>
+</html>

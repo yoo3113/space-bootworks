@@ -1,0 +1,5 @@
+package com.springboot.controller.param;
+
+public class Ex02Controller {
+
+}

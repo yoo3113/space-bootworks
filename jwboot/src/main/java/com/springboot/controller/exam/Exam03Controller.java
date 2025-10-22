@@ -1,0 +1,17 @@
+package com.springboot.controller.exam;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class Exam03Controller {
+	
+	@GetMapping("/exam03")
+	public String requestMethod(Model model) {
+		//모델로 데이터 저장 - "data1"을 뷰로 보냄
+		model.addAttribute("data1", "Model 예제");
+		model.addAttribute("data2", "웹 요청 URL은 / exam03입니다.");
+		return "pages/view03";
+	}
+}

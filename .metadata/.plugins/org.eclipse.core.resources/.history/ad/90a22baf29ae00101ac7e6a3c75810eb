@@ -1,0 +1,5 @@
+/**
+ * 시계 구형
+ */
+
+setInterval(myWatch, 1000);

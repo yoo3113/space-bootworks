@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>home...</title>
+</head>
+<body>
+	<h2>홈페이지 방문을 환영합니다.</h2>
+	<hr>
+	<a href="/time">시간 페이지로 이동</a>
+</body>
+</html>
