@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Welcome~</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div id="container">
+		<div id="main">
+			<h2>프로미스나인 - 이나꼬~</h2>
+			<div class="main-pic">
+				<img alt="이나경" th:src="@{/images/naGo.jpg}">
+			</div>
+		
+			<div class="menu">
+				<th:block th:if="${session.loginEmail}">
+					<a th:href="@{/members/logout}" th:text="로그아웃"></a> |
+				</th:block>
+				<th:block th:unless="${session.loginEmail}">
+					<a th:href="@{/members/login}"th:text="로그인"></a> |
+				</th:block>
+				<a th:href="@{/members/join}">팬클럽 가입</a> |
+				<a th:href="@{/members}">회원 목록</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

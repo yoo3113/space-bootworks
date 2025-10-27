@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>회원 정보</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div id="container">
+		<h2>회원 정보</h2>
+		<div class="memberInfo">
+			<fieldset>
+					<ul>
+						<li>
+							<label for="email">이메일</label>
+							<input type="text" name="email" 
+									th:value="${member.email}" readonly>
+						</li>
+						<li>
+							<label for="passwd">비밀번호</label>
+							<input type="text" name="passwd"
+									th:value="${member.passwd}" readonly>
+						</li>
+						<li>
+							<label for="name">이름</label>
+							<input type="text" name="name"
+									th:value="${member.name}" readonly>
+						</li>
+						<li>
+							<label for="gender">성별</label>
+							<input type="radio" name="gender"
+							 value="남자" th:checked="${member.gender eq '남자'}">남
+							<input type="radio" name="gender"
+							 value="여자" th:checked="${member.gender eq '여자'}">여
+						</li>
+					</ul>
+				</fieldset>
+				<div class="btnInfo">
+					<a th:href="@{/members}"><button>목록</button></a>
+				</div>
+		</div>
+	</div>
+</body>
+</html>
