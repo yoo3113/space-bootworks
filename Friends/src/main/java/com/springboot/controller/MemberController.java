@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-@AllArgsConstructor //생성자 주입
+@AllArgsConstructor  //생성자 주입
 @Slf4j
 @RequestMapping("/members")
 @Controller
@@ -28,7 +28,7 @@ public class MemberController {
 	
 	//서비스 인스턴스 생성
 	private MemberService service;
-	
+
 	//회원 가입 페이지
 	@GetMapping("/join")
 	public String joinForm() {
@@ -39,25 +39,25 @@ public class MemberController {
 	@PostMapping("/join")
 	public String join(@ModelAttribute MemberDTO memberDTO) {
 		log.info("member: " + memberDTO);
-		service.save(memberDTO); //서비스에 있는 save() 호출
+		service.save(memberDTO);  //서비스에 있는 save() 호출
 		return "redirect:/";
 	}
 	
 	//회원 목록
 	@GetMapping
 	public String getMemberList(Model model) {
-		List<Member> memberList = service.findAll();//서비스의 findAll() 호출
-		//모델로 저장해서 보내기
+		List<Member> memberList = service.findAll(); //서비스의 findAll() 호출
+		//모델로 저장해서 list 보내기
 		model.addAttribute("memberList", memberList);
-		return "member/list"; //member/list.html
+		return "member/list";  //member/list.html
 	}
 	
 	//회원 정보(1명 보기)
-	@GetMapping("/{id}") //id -경로 변수
+	@GetMapping("/{id}") //id - 경로 변수
 	public String getMember(@PathVariable Long id,
 			Model model) {
 		Member member = service.findById(id);
-		model.addAttribute("member", member);
+		model.addAttribute("member", member);  //회원 보내기
 		return "member/info";
 	}
 	
@@ -73,14 +73,15 @@ public class MemberController {
 	public String login(@RequestParam String email,
 			@RequestParam String passwd,
 			HttpSession session,
-			RedirectAttributes ra) {
+			RedirectAttributes ra ) {
 		try {
 			//로그인 체크 메서드 호출
 			MemberDTO dto = service.login(email, passwd);
 			
-			//로그인 성공시 - 세션 발급
+			//로그인 성공시 - 세션 발급:이메일, 이름
 			session.setAttribute("loginEmail", dto.getEmail());
-			return "redirect:/";	
+			session.setAttribute("loginName", dto.getName());
+			return "redirect:/";
 		}catch(Exception e) {
 			//로그인 실패, RedirectAttributes는 redirect 상태에서 데이터 전송
 			ra.addFlashAttribute("error", e.getMessage());
@@ -95,5 +96,8 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
-	
 }
+
+
+
+

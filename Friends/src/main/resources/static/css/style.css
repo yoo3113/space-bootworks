@@ -3,42 +3,38 @@
 /* 공통 스타일 */
 #container{width: 80%; margin: 0 auto;}
 h2{
-	border-bottom: 2px solid #ccc;
+	border-bottom: 2px solid #ccc; 
 	padding: 16px;
 	text-align: center;
 }
+ul{padding-left: 0}
 ul li{list-style: none; margin: 10px;}
+a{text-decoration: none;}
 table thead{background: #eee;}
 .error{color: #f00; margin: 10px;}
+textarea{resize: none;}
 
 /* index 스타일 */
 #main{text-align: center}
 .main-pic img{width: 40%; border-radius: 8px;}
 .menu{margin: 10px;}
 
-/* join 스타일*/
-.joinForm{
-	width: 400px;
-	margin: 0 auto;
-}
-.joinForm label{
-	width: 80px;
-	float: left;
-}
+/* join 스타일 */
+.joinForm{width: 400px; margin: 0 auto;}
+.joinForm label{width: 80px; float: left;}
+
 /* memberList 스타일 */
-.memberList{
+.memberList, .boardList{
 	width: 600px;
 	margin: 20px auto;
 	border: 1px solid #ccc;
 	border-collapse: collapse;
 }
-.memberList th, td{
+.memberList th, td, .boardList th, td{
 	border: 1px solid #ccc;
 	padding: 5px 10px;
 }
-.home{
-	text-align: center;
-}
+.home{width: 600px; margin: 0 auto;}
 
 /* memberInfo 스타일 */
 .memberInfo{
@@ -51,8 +47,21 @@ table thead{background: #eee;}
 }
 .memberInfo .btnInfo{margin: 16px;}
 
+/* write 스타일 */
+.writeForm, .boardDetail{
+	width: 500px;
+	margin: 0 auto;
+}
 
+/* boardList 스타일 */
+.btnWrite{
+	width: 550px;
+	margin: 0 auto;
+	text-align: right;
+}
+.pagination{text-align: center;}
+.pagination a{padding: 4px;}
 
-
+.btnWrite button{padding: 8px 12px;}
 
 

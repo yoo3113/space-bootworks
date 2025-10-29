@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>글쓰기</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div id="container">
+		<!-- 세션이 없으면 로그인 요청(자바스크립트) -->
+		<script th:inline="javascript">
+			let loginEmail = [[${session.loginEmail}]]
+			if(!loginEmail){
+				alert("로그인이 필요합니다.");
+				location.href = "/members/login";
+			}
+		</script>
+	
+		<h2>글쓰기</h2>
+		<form th:action="@{/boards/write}" method="post"
+				class="writeForm">
+			<fieldset>
+	    		<ul>
+	    			<li>
+	    				<input type="text" name="title" required
+	    					placeholder="제목" size=62>
+	    			</li>
+	    			<li>
+	    				<textarea name="content" rows="8" cols="60"
+	    					placeholder="내용"></textarea>
+	    			</li>
+	    			<li>
+	    				<input type="text" name="writer" size=62
+	    					  th:value="${session.loginName}">
+	    			</li>
+	    			<li>
+	    				<input type="submit" value="등록">
+	    				<input type="reset" value="취소">
+	    			</li>
+	    		</ul>
+	    	</fieldset>
+		</form>
+	</div>
+</body>
+</html>
