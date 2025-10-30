@@ -1,9 +1,0 @@
-package com.springboot.dto;
-
-import lombok.Getter;
-
-@Getter
-public class User {
-	private String id; //아이디
-	private String pw; //비밀번호
-}

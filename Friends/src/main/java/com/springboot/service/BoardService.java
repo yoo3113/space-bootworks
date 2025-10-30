@@ -80,13 +80,43 @@ public class BoardService {
 		log.info("pageable.getPageNumber(): " + pageable.getPageNumber());
 		
 		//http://localhost:8080/boards/pages?page=3 ->3페이지
-		pageable = PageRequest.of(page, pageSize); //오름차순
-		//pageable = PageRequest.of(page, pageSize, Sort.Direction.DESC, "id"); //내림차순
+		//pageable = PageRequest.of(page, pageSize); //오름차순
+		pageable = PageRequest.of(page, pageSize, Sort.Direction.DESC, "id"); //내림차순
 		
 		
 		Page<Board> boardList = repository.findAll(pageable);
 		return boardList;
 	}
+
+	public Page<Board> findByTitleContaining(String keyword, Pageable pageable) {
+		//0-> 첫페이지, 10->페이지당 개수
+		//pageable = PageRequest.of(0, 10); //오름차순
+		int page = pageable.getPageNumber() - 1;
+		int pageSize = 10;
+				
+		log.info("pageable.getPageNumber(): " + pageable.getPageNumber());
+		//pageable = PageRequest.of(page, pageSize); //오름차순
+		pageable = PageRequest.of(page, pageSize, Sort.Direction.DESC, "id"); //내림차순
+				
+		Page<Board> boardList = repository.findByTitleContaining(keyword, pageable);
+		return boardList;
+	}
+
+	public Page<Board> findByContentContaining(String keyword, Pageable pageable) {
+		//0-> 첫페이지, 10->페이지당 개수
+		//pageable = PageRequest.of(0, 10); //오름차순
+		int page = pageable.getPageNumber() - 1;
+		int pageSize = 10;
+						
+		log.info("pageable.getPageNumber(): " + pageable.getPageNumber());
+		//pageable = PageRequest.of(page, pageSize); //오름차순
+		pageable = PageRequest.of(page, pageSize, Sort.Direction.DESC, "id"); //내림차순
+						
+		Page<Board> boardList = repository.findByContentContaining(keyword, pageable);
+		return boardList;
+	}
+
+	
 	
 }
 

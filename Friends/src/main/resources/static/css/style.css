@@ -54,6 +54,11 @@ textarea{resize: none;}
 }
 
 /* boardList 스타일 */
+.searchForm{
+	width: 550px;
+	margin: 0 auto;
+	text-align: right;
+}
 .btnWrite{
 	width: 550px;
 	margin: 0 auto;
